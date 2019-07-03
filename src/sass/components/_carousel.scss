@@ -1,0 +1,14 @@
+.carousel {
+    &-container {
+        background-color: white;
+        padding: 5px 5px 0 0;
+        max-height: 20rem;
+    }
+    .legend {
+        color: $white;
+        background-color: transparent !important;
+        bottom: 10px !important;
+        padding: 5px !important;
+        opacity: 1 !important;
+    }
+}

@@ -1,0 +1,24 @@
+header {
+    nav.navbar {
+        background-color: $black;
+        width: 100%;
+        padding: 15px 15px;
+    }
+
+    .navbar-brand { 
+        color: $white !important;
+        font-size: 2rem; 
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+.basic-navbar-nav {
+    border: none !important;
+    outline: none !important;
+}
+
+
+.navbar-dark, .navbar-toggler {
+    color: $white !important;
+}

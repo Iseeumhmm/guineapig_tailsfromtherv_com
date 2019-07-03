@@ -1,0 +1,43 @@
+.latest_post {
+    &-container {
+        padding: 6rem 2rem;
+        background-color: white;
+    }
+    &-heading {
+        &--container {
+            position: relative;
+            height: 3rem;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        &--box-outer {
+            display: inline-block;
+        }
+        &--box {
+            color: $white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            height: 3rem;
+            h2 {
+                padding: 1rem 2rem 0;
+            }
+        }
+        &--bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            width: 100%;
+        }
+    }
+    
+    &_text {
+        &-container {
+            padding-top: 2rem;
+            font-size: 1.75rem;
+        }
+    }
+    
+}
