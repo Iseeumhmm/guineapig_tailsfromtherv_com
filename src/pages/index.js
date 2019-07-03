@@ -43,6 +43,7 @@ const Blog = () => (
                       }
                     }
                   }
+                  date
                   title
                 }
               }

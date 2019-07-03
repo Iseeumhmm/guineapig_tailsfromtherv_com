@@ -1,0 +1,24 @@
+.post_list {
+    // padding: 0 2rem;
+    .row {
+        margin: 15px 0;
+    }
+    [class^="col-"] {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &-image {
+        .gatsby-image-wrapper {
+            max-height: 7rem;
+            min-width: 12rem;
+            img {
+                object-position: bottom center !important;
+            }
+        }
+    }
+    &-description {
+        h2 { margin-bottom: 0; }
+        padding-left: 15px;
+    }
+}
