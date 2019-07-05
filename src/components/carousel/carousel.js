@@ -6,14 +6,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const carousel = (props) => (
         <Carousel 
-          centerMode
-          autoPlay
           infiniteLoop
-          showArrows={false}
-          emulateTouch
+        //   showArrows={false}
+          centerMode
           showStatus={false}
           showIndicators={false}
-          showThumbs={false}>
+          showThumbs={false}
+          >
             {props.images.map(({ node, i }) => (
                 <div key={i + "div"} className="carousel-container">
                     <div className="overlay-container">

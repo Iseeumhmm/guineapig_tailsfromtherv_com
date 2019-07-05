@@ -21,7 +21,7 @@ const postList = (props) => {
                 </div>
                 <div className="col-8">
                     <div className="post_list-description">
-                        <Link to={`/blog/${post.slug}`}><p>{post.acf.excerpt}</p></Link>
+                        <Link to={`/blog/${post.slug}`}><p>{`${post.acf.excerpt.substr(0, 85)} ...`}</p></Link>
                         
                     </div>
                 </div>
