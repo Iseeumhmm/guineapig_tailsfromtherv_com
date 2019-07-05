@@ -9,7 +9,8 @@ const carousel = (props) => (
           centerMode
           autoPlay
           infiniteLoop
-          // selectedItem={3}
+          showArrows={false}
+          emulateTouch
           showStatus={false}
           showIndicators={false}
           showThumbs={false}>
