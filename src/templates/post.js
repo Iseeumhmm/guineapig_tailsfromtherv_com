@@ -20,10 +20,7 @@ const PostTemplate = (props) => {
 
   useEffect(() => {
     // Add Disqus Comments
-    // var disqus_config = function () {
-    //   this.page.url = "http://guineapig.tailsfromtherv.com";
-    //   this.page.identifier = post.slug;
-    // };
+    
     var d = document, s = d.createElement('script');
     s.src = 'https://tails-from-the-rv.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
