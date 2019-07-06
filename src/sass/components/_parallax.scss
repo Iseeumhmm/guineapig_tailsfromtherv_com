@@ -1,0 +1,32 @@
+$scroll-factor : 1;
+
+.parallax-main {
+  height: 100vh;
+  max-height: 100%;
+  overflow-x: hidden;
+  perspective: 1px;
+  perspective-origin: center top;
+  transform-style: preserve-3d;
+}
+
+.parallax-image {
+  min-height: 35rem;
+  max-height: 37vh;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  vertical-align: top;
+  transform-origin: center top;
+  transform: 
+    translateZ(-#{$scroll-factor * 2}px)
+    scale(1 + $scroll-factor * 2);
+}
+
+.parallax-lower {
+  min-height: 200vh;
+  background: white;
+  transform: translateZ(0);
+}
+
+
+

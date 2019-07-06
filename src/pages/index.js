@@ -7,6 +7,8 @@ import BannerImage from '../components/banner-image';
 import Carousel from '../components/carousel/carousel';
 import LatestPost from '../components/latest-post';
 import PostList from '../components/postList';
+import BackgroundImage from 'gatsby-background-image'
+
 
 const Blog = () => (
   <StaticQuery
@@ -31,6 +33,7 @@ const Blog = () => (
                 node {
                   acf {
                     excerpt
+                    location
                     image {
                       localFile {
                         childImageSharp {
@@ -74,18 +77,29 @@ const Blog = () => (
       return ( 
       <Layout>
         <SEO title="Home" />
-        <HappeningNow key={1} highlightColour={pages.acf.highlight_color}/>
-        <BannerImage key={2} image={pages.acf.main_banner_image.localFile.childImageSharp.fluid}/>
-        <Carousel key={3} images={posts.edges}/>
-        <LatestPost 
-          key={4} 
-          title={post.title}
-          slug={post.slug}
-          location={post.acf.location}
-          what={post.acf.excerpt}
-          image={post.acf.image.localFile.childImageSharp}
-          highlight={post.acf.highlight_color}/>
-        <PostList key={5} data={posts.edges}/>
+        <HappeningNow 
+                key={1} 
+                highlightColour={pages.acf.highlight_color}/>
+        <div className="parallax-main">
+            <BackgroundImage Tag="div"
+              className="parallax-image"
+              fluid={pages.acf.main_banner_image.localFile.childImageSharp.fluid}
+              backgroundColor={`#040e18`}/>
+            <div className="parallax-lower">
+              <p className="banner-text">Coming this July</p>
+              {/* <BannerImage key={2} image={pages.acf.main_banner_image.localFile.childImageSharp.fluid}/> */}
+              <Carousel key={3} images={posts.edges}/>
+              <LatestPost 
+                key={4} 
+                title={post.title}
+                slug={post.slug}
+                location={post.acf.location}
+                what={post.acf.excerpt}
+                image={post.acf.image.localFile.childImageSharp}
+                highlight={post.acf.highlight_color}/>
+              <PostList key={5} data={posts.edges}/>
+            </div>
+          </div>
       </Layout>
 )}}
 />

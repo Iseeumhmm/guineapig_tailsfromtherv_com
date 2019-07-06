@@ -9,6 +9,7 @@
     "bootstrap": "^4.3.1",
     "dotenv": "^8.0.0",
     "gatsby": "^2.8.6",
+    "gatsby-background-image": "^0.8.0",
     "gatsby-image": "^2.1.3",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^2.1.1",
@@ -18,6 +19,7 @@
     "gatsby-source-filesystem": "^2.0.38",
     "gatsby-source-wordpress": "^3.0.65",
     "gatsby-transformer-sharp": "^2.1.21",
+    "intersection-observer": "^0.7.0",
     "jquery": "^3.4.1",
     "node-sass": "^4.12.0",
     "popper.js": "^1.15.0",
@@ -26,7 +28,8 @@
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-responsive-carousel": "^3.1.49",
+    "react-slick": "^0.24.0",
+    "slick-carousel": "^1.8.1",
     "webpack": "^4.33.0"
   },
   "devDependencies": {

@@ -1,24 +1,21 @@
 import React from 'react';
-import Slider from "react-slick";
 import Img from 'gatsby-image';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const carousel = (props) => {
-    var settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1.5,
-        slidesToScroll: 1
-      };
-    return (
-        <Slider {...settings}>
-        {props.images.slice(1).map(({ node, i }) => {
-            console.log("this is acf: ", node);
-            return (
+const carousel = (props) => (
+        <Carousel 
+          infiniteLoop
+        //   showArrows={false}
+          centerMode
+          showStatus={false}
+          showIndicators={false}
+          showThumbs={false}
+          >
+            {props.images.map(({ node, i }) => (
                 <div key={i + "div"} className="carousel-container">
                     <div className="overlay-container">
                         <Img
-                            className="carousel-image"
                             key={i}
                             fluid={node.acf.image.localFile.childImageSharp.fluid}
                             alt="blog_image_one"
@@ -28,9 +25,8 @@ const carousel = (props) => {
                         </div>
                     </div>
                 </div>
-        )})}
-      </Slider>
-    )
-}
+            ))}
+        </Carousel>
+);
 
 export default carousel;
