@@ -8,6 +8,7 @@ import Carousel from '../components/carousel/carousel';
 import LatestPost from '../components/latest-post';
 import PostList from '../components/postList';
 import BackgroundImage from 'gatsby-background-image'
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 
 
 const Blog = () => (
@@ -75,32 +76,35 @@ const Blog = () => (
       const { wordpressAcfPages: pages } = data;
       console.log("this is post: ", post);
       return ( 
-      <Layout>
-        <SEO title="Home" />
-        <HappeningNow 
-                key={1} 
-                highlightColour={pages.acf.highlight_color}/>
-        <div className="parallax-main">
-            <BackgroundImage Tag="div"
-              className="parallax-image"
-              fluid={pages.acf.main_banner_image.localFile.childImageSharp.fluid}
-              backgroundColor={`#040e18`}/>
-            <div className="parallax-lower">
-              <p className="banner-text">Coming this July</p>
-              {/* <BannerImage key={2} image={pages.acf.main_banner_image.localFile.childImageSharp.fluid}/> */}
-              <Carousel key={3} images={posts.edges}/>
-              <LatestPost 
-                key={4} 
-                title={post.title}
-                slug={post.slug}
-                location={post.acf.location}
-                what={post.acf.excerpt}
-                image={post.acf.image.localFile.childImageSharp}
-                highlight={post.acf.highlight_color}/>
-              <PostList key={5} data={posts.edges}/>
-            </div>
-          </div>
-      </Layout>
+      <ParallaxProvider>
+        <Layout>
+          <SEO title="Home" />
+          <HappeningNow 
+                  key={1} 
+                  highlightColour={pages.acf.highlight_color}/>      
+              <BackgroundImage Tag="div"
+                className="parallax-image"
+                fluid={pages.acf.main_banner_image.localFile.childImageSharp.fluid}
+                backgroundColor={`#040e18`}/>
+                <div >
+                <Parallax className="custom-class" y={[0, -30]} tagOuter="figure">
+                  <p className="banner-text">Coming this July</p>
+                  <Carousel key={3} images={posts.edges}/>
+                  <LatestPost 
+                    key={4} 
+                    title={post.title}
+                    slug={post.slug}
+                    location={post.acf.location}
+                    what={post.acf.excerpt}
+                    image={post.acf.image.localFile.childImageSharp}
+                    highlight={post.acf.highlight_color}/>
+                  <PostList key={5} data={posts.edges}/>
+                </Parallax>
+                </div>
+                
+                
+        </Layout>
+        </ParallaxProvider>
 )}}
 />
 )

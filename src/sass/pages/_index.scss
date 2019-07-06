@@ -3,7 +3,11 @@
     text-align: center;
     color: white;
     position: relative;
-    bottom: 19rem;
+    bottom: 16rem;
     margin-bottom: -2.5rem;
     
+}
+// fix spacing at right side (scroll bar was appearing)
+.slick-next {
+    right: 0 !important;
 }
