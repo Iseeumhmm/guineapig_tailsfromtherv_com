@@ -1,15 +1,44 @@
 
-$font-x-large: 3rem;
-$font-large: 2rem;
-$font-medium: 1.5rem;
 
 $black: black;
 $grey: #d3d3d3;
+$dark-grey: #62656b;
 $white: #f9f9f9;
-
+.color-black {
+    color: $black;
+}
 .box-shadow {
     box-shadow: 7px 7px 10px -4px rgba(0,0,0,0.24);
 }
 .border-radius {
     border-radius: 5px;
+}
+
+// Typography
+$font-x-large: 3rem;
+$font-large: 2rem;
+$font-regular: 1.8rem;
+$font-small: 1.5rem;
+$font-xs: 1.2rem;
+
+.font-xs {
+    font-size: $font-xs !important;
+}
+
+.text-regular {
+    color: $black;
+    font-size: $font-regular;
+}
+.muted-text {
+    font-size: $font-regular;
+    color: $dark-grey;
+}
+
+// Layout
+
+$padding-paragraph: 2rem;
+
+.padding-paragraph-y {
+    padding-top: $padding-paragraph !important;
+    padding-bottom: $padding-paragraph !important;
 }
