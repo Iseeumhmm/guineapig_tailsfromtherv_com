@@ -4,7 +4,7 @@ $scroll-factor : 1;
   height: 100vh;
   max-height: 100%;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  // -webkit-overflow-scrolling: touch;
   perspective: 1px;
   perspective-origin: center top;
   transform-style: preserve-3d;
