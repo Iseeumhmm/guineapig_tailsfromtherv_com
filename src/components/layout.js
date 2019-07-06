@@ -31,7 +31,7 @@ const Layout = ({ children }) => (
         <div>
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()}, Built by
+            © {new Date().getFullYear()}, Custom Built by Blizzard's
             {` `}
             <a href="https://www.rickheffren.com">Dad</a>
           </footer>

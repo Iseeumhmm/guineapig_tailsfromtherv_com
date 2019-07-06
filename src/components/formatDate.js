@@ -36,7 +36,9 @@ export default function formatDate(ISOdate) {
     //     year: year,
     //     time : time
     // }
-    const returnString = monthNames[monthIndex] + ' ' + day + ", " + year + " @ " + time;
+    // const returnString = monthNames[monthIndex] + ' ' + day + ", " + year + " @ " + time;
+    const returnString = monthNames[monthIndex] + ' ' + day + ", " + year;
+
     return returnString;
   }
   

@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
-
+import { Link } from 'gatsby';
 
 const latestPost = (props) => (
             
@@ -14,14 +14,16 @@ const latestPost = (props) => (
         <div className="latest_post-heading--bar" style={{backgroundColor: props.highlight}}/>
         </div>
         <div className="overlay-container box-shadow">
-          <Img
-                key="4"
-                fluid={props.image.fluid}
-                alt="blog_image_one"
-            />
-            <div className="overlay">
-                <div className="overlay-text"><h2>{props.location}</h2></div>
-            </div>
+            <Link to={`/blog/${props.slug}`}>
+                <Img
+                    key="4"
+                    fluid={props.image.fluid}
+                    alt="blog_image_one"
+                />
+                <div className="overlay">
+                    <div className="overlay-text"><h2>{props.location}</h2></div>
+                </div>
+            </Link>
         </div>
         <div className="latest_post_text-container">
             {props.what}

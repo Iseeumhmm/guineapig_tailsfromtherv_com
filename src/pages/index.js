@@ -48,6 +48,7 @@ const Blog = () => (
             }
               wordpressWpBlogs {
                 title
+                slug
                 acf {
                   highlight_color
                   image {
@@ -65,22 +66,28 @@ const Blog = () => (
               }
             }
     `}
-    render={data => ( 
+    render={data => {
+      const { wordpressWpBlogs: post } = data;
+      const { allWordpressWpBlogs: posts } = data;
+      const { wordpressAcfPages: pages } = data;
+      console.log("this is post: ", post);
+      return ( 
       <Layout>
         <SEO title="Home" />
-        <HappeningNow key={1} highlightColour={data.wordpressAcfPages.acf.highlight_color}/>
-        <BannerImage key={2} image={data.wordpressAcfPages.acf.main_banner_image.localFile.childImageSharp.fluid}/>
-        <Carousel key={3} images={data.allWordpressWpBlogs.edges}/>
+        <HappeningNow key={1} highlightColour={pages.acf.highlight_color}/>
+        <BannerImage key={2} image={pages.acf.main_banner_image.localFile.childImageSharp.fluid}/>
+        <Carousel key={3} images={posts.edges}/>
         <LatestPost 
           key={4} 
-          title={data.wordpressWpBlogs.title}
-          location={data.wordpressWpBlogs.acf.location}
-          what={data.wordpressWpBlogs.acf.excerpt}
-          image={data.wordpressWpBlogs.acf.image.localFile.childImageSharp}
-          highlight={data.wordpressWpBlogs.acf.highlight_color}/>
-        <PostList key={5} data={data.allWordpressWpBlogs.edges}/>
+          title={post.title}
+          slug={post.slug}
+          location={post.acf.location}
+          what={post.acf.excerpt}
+          image={post.acf.image.localFile.childImageSharp}
+          highlight={post.acf.highlight_color}/>
+        <PostList key={5} data={posts.edges}/>
       </Layout>
-)}
+)}}
 />
 )
 
