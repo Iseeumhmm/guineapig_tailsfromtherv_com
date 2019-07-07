@@ -34,7 +34,16 @@ const PostTemplate = (props) => {
 
   return (
     <Layout>
-      <SEO title={post.title}/>
+      <SEO 
+        title={post.title}
+        description={post.acf.excerpt}
+        meta={[
+          {
+            property: `og:image`,
+            content: `https://guineapig.tailsfromtherv.com/${post.acf.image.localFile.childImageSharp.fixed.src}`
+          }
+        ]}
+      />
       <article>
         <div className="post-header">
           <Link 
@@ -81,11 +90,15 @@ export const pageQuery = graphql`
         date
         acf {
             highlight_color
+            excerpt
             location
             what
             image {
             localFile {
                 childImageSharp {
+                    fixed(width: 1200, height: 630) {
+                      ...GatsbyImageSharpFixed
+                    }
                     fluid {
                         ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }

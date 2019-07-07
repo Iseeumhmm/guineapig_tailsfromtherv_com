@@ -3,7 +3,7 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `Tails from the RV`,
-    description: `Follow the cutest guinea pig on the planet as he travels all over the country`,
+    description: `Blizzard the guinea pig heads to the east coast of Canada for a summer vacation.`,
     author: `Rick Heffren`,
   },
   plugins: [
