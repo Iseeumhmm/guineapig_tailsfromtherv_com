@@ -95,7 +95,6 @@ const Blog = () => (
           
         });
       }, []);
-      console.log("image: ", pages.acf.main_banner_image.localFile.childImageSharp.fixed.base64);
       let image = `https://guineapig.tailsfromtherv.com${pages.acf.main_banner_image.localFile.childImageSharp.fixed.src}`;
       return ( 
       <Layout>
