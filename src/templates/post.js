@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PropType from 'prop-types';
-import Img from 'gatsby-image';
 import BackgroundImage from 'gatsby-background-image';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/seo';

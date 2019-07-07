@@ -2,7 +2,7 @@ import React, { useEffect }from 'react';
 // import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+// import Nav from 'react-bootstrap/Nav'
 // import NavDropdown from 'react-bootstrap/NavDropdown'
 // import Form from 'react-bootstrap/Form'
 // import FormControl from 'react-bootstrap/FormControl'
@@ -10,7 +10,6 @@ import Nav from 'react-bootstrap/Nav'
 
 
 function Header({ siteTitle }) {
-  var isHidden = false;
   useEffect(() => {
     var nav = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -36,7 +35,6 @@ function Header({ siteTitle }) {
                 {/* <Nav.Link style={{color: "white"}} className="ml-auto" href="#link">Link</Nav.Link> */}
               {/* </Nav>
             </Navbar.Collapse> */}
-            
             </Navbar>   
         </header>
 )};

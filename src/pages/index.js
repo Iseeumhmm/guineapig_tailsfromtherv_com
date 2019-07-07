@@ -3,7 +3,6 @@ import SEO from '../components/seo';
 import { StaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import HappeningNow from '../components/happening-now';
-import BannerImage from '../components/banner-image';
 import Carousel from '../components/carousel/carousel';
 import LatestPost from '../components/latest-post';
 import PostList from '../components/postList';
@@ -20,6 +19,9 @@ const Blog = () => (
                 main_banner_image {
                   localFile {
                     childImageSharp {
+                      fixed(width: 1200, height: 630) {
+                        ...GatsbyImageSharpFixed
+                      }
                       fluid {
                         ...GatsbyImageSharpFluid_withWebp_tracedSVG
                       }
@@ -95,7 +97,15 @@ const Blog = () => (
       }, []);
       return ( 
       <Layout>
-        <SEO title="Home" />
+        <SEO 
+          title="Home"
+          meta={[
+            {
+              property: `og:image`,
+              content: pages.acf.main_banner_image.localFile.childImageSharp.fixed.src
+            }
+          ]}
+         />
         <BackgroundImage Tag="div"
           className="parallax-image background"
           fluid={pages.acf.main_banner_image.localFile.childImageSharp.fluid}>
