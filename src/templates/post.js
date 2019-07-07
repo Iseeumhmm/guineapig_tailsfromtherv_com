@@ -40,7 +40,7 @@ const PostTemplate = (props) => {
         meta={[
           {
             property: `og:image`,
-            content: `https://guineapig.tailsfromtherv.com/${post.acf.image.localFile.childImageSharp.fixed.src}`
+            content: `https://guineapig.tailsfromtherv.com${post.acf.image.localFile.childImageSharp.fixed.src}`
           }
         ]}
       />
