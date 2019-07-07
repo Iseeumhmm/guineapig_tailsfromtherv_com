@@ -104,9 +104,12 @@ const Blog = () => (
                 key={1} 
                 highlightColour={pages.acf.highlight_color}/>  
         </BackgroundImage>
-          <p className="banner-text">Coming this July<br></br>
-          <hr className="banner-line"></hr>
-          Blizzard the Guinea Pig's Adventures</p>
+          <div className="banner-text">
+            <p className="">Coming this July</p>
+            <hr className="banner-line"></hr>
+            <p>Blizzard the Guinea Pig's Adventures</p>
+          </div>
+          
           <Carousel key={3} images={posts.edges}/>
           <LatestPost 
             key={4} 

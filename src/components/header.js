@@ -17,7 +17,7 @@ function Header({ siteTitle }) {
       if ( window.pageYOffset > 10 ) {
         nav.classList += ' hidden';
       } else {
-        nav.classList = 'navbar-dark navbar navbar-expand-lg navbar-light';
+        nav.classList = 'temp-padding navbar-dark navbar navbar-expand-lg navbar-light';
       }
     });
   }, []);

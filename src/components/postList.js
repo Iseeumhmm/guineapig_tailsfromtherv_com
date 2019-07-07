@@ -7,16 +7,17 @@ const postList = (props) => {
     <div className="container-fluid post_list">
         {props.data.slice(1).map(( edges, i ) => {
             const { node: post } = edges;
-            console.log("excerpt: ", post.acf.excerpt);
             return (
             <div className="row" key={i}>
                 <div className="col-4">
                     <div className="post_list-image box-shadow">
-                        <Img
-                            key={i}
-                            fluid={post.acf.image.localFile.childImageSharp.fluid}
-                            alt="Blog Image"
-                        />
+                        <Link to={`/blog/${post.slug}`}>
+                            <Img
+                                key={i}
+                                fluid={post.acf.image.localFile.childImageSharp.fluid}
+                                alt="Blog Image"
+                            />
+                        </Link>
                     </div>
                 </div>
                 <div className="col-8">
