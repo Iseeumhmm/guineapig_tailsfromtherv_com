@@ -76,8 +76,21 @@ const Blog = () => (
       useEffect(() => {
         window.addEventListener('scroll', () => {
           var scrolled = window.pageYOffset;
+          // Paralax
           const background = document.querySelector('.background');
-          background.style.top = -(scrolled * -0.65) + 'px';
+          if (  background ) {
+            background.style.top = -(scrolled * -0.65) + 'px';
+          }
+          // Hide banner text
+          const bannerText = document.querySelector('.banner-text');
+          if ( bannerText ) {
+            if ( scrolled > 5 ) {
+              bannerText.classList += ' hidden';
+            } else {
+              bannerText.classList = ' banner-text';
+            }
+          }
+          
         });
       }, []);
       return ( 

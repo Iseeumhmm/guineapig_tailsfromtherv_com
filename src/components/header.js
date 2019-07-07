@@ -1,3 +1,4 @@
+import React, { useEffect }from 'react';
 // import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import Navbar from 'react-bootstrap/Navbar'
@@ -8,11 +9,18 @@ import Nav from 'react-bootstrap/Nav'
 // import Button from 'react-bootstrap/Button';
 
 
-// import React, { useState } from 'react';
-import React from 'react';
-
-
 function Header({ siteTitle }) {
+  var isHidden = false;
+  useEffect(() => {
+    var nav = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if ( window.pageYOffset > 10 ) {
+        nav.classList += ' hidden';
+      } else {
+        nav.classList = 'navbar-dark navbar navbar-expand-lg navbar-light';
+      }
+    });
+  }, []);
     // const [isOpen, setIsOpen] = useState(false);
     // const toggle = () => setIsOpen(!isOpen);
     
