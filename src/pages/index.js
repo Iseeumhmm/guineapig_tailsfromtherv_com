@@ -98,14 +98,15 @@ const Blog = () => (
         <SEO title="Home" />
         <BackgroundImage Tag="div"
           className="parallax-image background"
-          fluid={pages.acf.main_banner_image.localFile.childImageSharp.fluid}
-          backgroundColor={`#040e18`}>
+          fluid={pages.acf.main_banner_image.localFile.childImageSharp.fluid}>
           <HappeningNow 
                 className="happening_now-parallax"
                 key={1} 
                 highlightColour={pages.acf.highlight_color}/>  
         </BackgroundImage>
-          <p className="banner-text">Coming this July</p>
+          <p className="banner-text">Coming this July<br></br>
+          <hr className="banner-line"></hr>
+          Blizzard the Guinea Pig's Adventures</p>
           <Carousel key={3} images={posts.edges}/>
           <LatestPost 
             key={4} 

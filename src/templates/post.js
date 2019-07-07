@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropType from 'prop-types';
 import Img from 'gatsby-image';
+import BackgroundImage from 'gatsby-background-image';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/seo';
 import formatDate from '../components/formatDate';
@@ -36,15 +37,32 @@ const PostTemplate = (props) => {
     <Layout>
       <SEO title={post.title}/>
       <article>
+        <div className="post-header">
+          <Link 
+            to="/"
+            className="post-go-back">
+            Go Back
+          </Link>
           <p className="muted-text">{`Blog > ${post.title}`}</p>
-          <p className="muted-text font-xs">{formatDate(post.date)}</p>
-          <h1 className="padding-paragraph-y">{post.title}</h1>
-          <p className="muted-text font-xs">By <span className="font-xs color-black">{post.author.name}</span> - <span className=" muted-text font-xs">{formatDate(post.date)}</span></p>
-          <div className="comments-container">
-            <div className="comments-form" id="disqus_thread"></div>
-          </div>
+          <p className="post-author muted-text font-xs">By <span className="font-xs color-black">{post.author.name}</span> - <span className=" muted-text font-xs">{formatDate(post.date)}</span></p>
+        </div>
+
+        <div className="post-banner">
+          <BackgroundImage 
+            Tag="div"
+            className="post-image"
+            fluid={post.acf.image.localFile.childImageSharp.fluid}/>
+        </div>
+
+        <div className="post-main-content">
+          <h1>{post.acf.location}</h1>
+          <p>{post.acf.what}</p>
+        </div>
+
+        <div className="comments-container">
+          <div className="comments-form" id="disqus_thread"></div>
+        </div>
       </article>
-      <Link to="/">Go Back</Link>
     </Layout>
   );
 };

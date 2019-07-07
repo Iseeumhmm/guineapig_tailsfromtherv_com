@@ -27,15 +27,15 @@ function Header({ siteTitle }) {
     return (
 
         <header>
-            <Navbar className="navbar-dark" expand="lg">
+            <Navbar className="navbar-dark temp-padding" expand="lg">
             <Navbar.Brand href="#home">{siteTitle}</Navbar.Brand>
-            <Navbar.Toggle style={{borderColor: "transparent"}} aria-controls="basic-navbar-nav" />
+            {/* <Navbar.Toggle style={{borderColor: "transparent"}} aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link  className="mr-auto" href="/#blog">Blog</Nav.Link>
+                <Nav.Link  className="mr-auto" href="/#blog">Blog</Nav.Link> */}
                 {/* <Nav.Link style={{color: "white"}} className="ml-auto" href="#link">Link</Nav.Link> */}
-              </Nav>
-            </Navbar.Collapse>
+              {/* </Nav>
+            </Navbar.Collapse> */}
             
             </Navbar>   
         </header>

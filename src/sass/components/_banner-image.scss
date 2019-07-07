@@ -12,3 +12,18 @@
         z-index: 2;
     }
 }
+.banner-text {
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 8rem;
+    margin-bottom: -2.5rem;
+    hr { margin: 1rem auto; }
+}
+.banner-line {
+    width: 20%;
+    border-top: 1px solid $white;
+}
+.post-banner {
+    padding: 0 2rem;
+}
