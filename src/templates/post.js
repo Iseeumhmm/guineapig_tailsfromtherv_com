@@ -96,7 +96,7 @@ export const pageQuery = graphql`
             image {
             localFile {
                 childImageSharp {
-                    fixed(width: 1080, height: 567) {
+                    fixed(width: 800, height: 420) {
                       ...GatsbyImageSharpFixed
                     }
                     fluid {

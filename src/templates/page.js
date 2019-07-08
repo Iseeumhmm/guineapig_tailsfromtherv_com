@@ -1,11 +1,12 @@
+import React, { useEffect } from 'react';
+import PropType from 'prop-types';
+import BackgroundImage from 'gatsby-background-image';
+import { graphql, Link } from 'gatsby';
+import SEO from '../components/seo';
+import formatDate from '../components/formatDate';
 
-// import React from 'react';
-// import PropType from 'prop-types';
-// import Helmet from 'react-helmet';
-// import Img from 'gatsby-image';
-// import { graphql } from 'gatsby';
 
-// import Layout from '../components/layout';
+import Layout from '../components/layout';
 
 // const stripHtml = (html) => {
 //   if (typeof window !== 'undefined') {
@@ -14,68 +15,94 @@
 //   }
 //   return html;
 // };
-// const PageTemplate = (props) => {
-//   const { data: { wordpressPage: page } } = props;
-//   return (
-//     <Layout>
-//       <Helmet
-//         title={page.title}
-//         meta={[
-//           { name: 'description', content: page.excerpt },
-//         ]}
-//       />
-//       <article>
-//         <header>
-//           <div>
-//             { page.featured_media && (
-//             <Img
-//               src={page.featured_media.localFile.childImageSharp.sizes.src}
-//               sizes={page.featured_media.localFile.childImageSharp.sizes}
-//               className="img-banner"
-//               alt={page.title}
-//             />
-//             )}
-//             <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
-//           </div>
-//         </header>
-//         <div className="content-body">
-//           <p dangerouslySetInnerHTML={{ __html: page.content }} />
-//         </div>
-//         <div className="hidden-xs col-sm-1 col-md-2" />
-//       </article>
-//     </Layout>
-//   );
-// };
-// PageTemplate.propTypes = {
-//   data: PropType.shape({}).isRequired,
-// };
-// export default PageTemplate;
+const PageTemplate = (props) => {
+  const { data: { wordpressPage: page } } = props;
+  useEffect(() => {
+    // Add Disqus Comments
+    
+    var d = document, s = d.createElement('script');
+    s.src = 'https://tails-from-the-rv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    const script = document.createElement("script");
+    script.src = "https://tails-from-the-rv.disqus.com/count.js";
+    script.id = 'dsq-count-scr';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
-// export const pageQuery = graphql`
-//   query($id: String!) {
-//     wordpressPage(id: { eq: $id }) {
-//         title
-//         content
-//         excerpt
-//         date(formatString: "DD, MMM YYYY")
-//         author{
-//             name
-//             description
-//             avatar_urls{
-//               wordpress_48
-//             }
-//         }
-//         featured_media{
-//           localFile{
-//             childImageSharp{
-//               id
-//               sizes( maxHeight: 800 ) {
-//                   ...GatsbyImageSharpSizes
-//               }
-//             }
-//           }
-//         }
-//         slug
-//     }
-//   }
-// `;
+  return (
+    <Layout>
+      <SEO 
+        title={page.title}
+        description={page.acf.excerpt}
+        meta={[
+          {
+            property: `og:image`,
+            content: `https://guineapig.tailsfromtherv.com${page.acf.main_banner_image.localFile.childImageSharp.fixed.src}`
+          }
+        ]}
+      />
+      <article>
+        <div className="post-header">
+          <Link 
+            to="/"
+            className="post-go-back">
+            Go Back
+          </Link>
+          <p className="muted-text">{`${page.title}`}</p>
+          <p className="post-author muted-text font-xs">By <span className="font-xs color-black">{page.author.name}</span> - <span className=" muted-text font-xs">{formatDate(page.date)}</span></p>
+        </div>
+
+        <div className="post-banner">
+          <BackgroundImage 
+            Tag="div"
+            className="post-image"
+            fluid={page.acf.main_banner_image.localFile.childImageSharp.fluid}/>
+        </div>
+
+        {/* <div className="post-main-content">
+          <h1>{post.acf.location}</h1>
+          <p>{post.acf.what}</p>
+        </div> */}
+
+        <div className="comments-container">
+          <div className="comments-form" id="disqus_thread"></div>
+        </div>
+      </article>
+    </Layout>
+  );
+};
+PageTemplate.propTypes = {
+  data: PropType.shape({}).isRequired,
+};
+export default PageTemplate;
+
+export const pageQuery = graphql`
+  query($id: String!) {
+    wordpressPage(id: { eq: $id }) {
+        id
+        author {
+            name
+        }
+        title
+        date
+        acf {
+            highlight_color
+            main_banner_image {
+                localFile {
+                    childImageSharp {
+                        fixed(width: 800, height: 420) {
+                        ...GatsbyImageSharpFixed
+                        }
+                        fluid {
+                            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
+
+`;

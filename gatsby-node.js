@@ -22,22 +22,62 @@ exports.createPages = ({
     // it like the site has a built-in database constructed
     // from the fetched data that you can run queries against.
 
+
+    // ==== PAGES ====
+    graphql(
+    `
+    {
+      allWordpressPage {
+        edges {
+          node {
+            slug
+            id
+            title
+            date
+          }
+        }
+      }
+    }
+    `,
+    ).then((result) => {
+      if (result.errors) {
+        console.log(result.errors);
+        reject(result.errors);
+      }
+      const pageTemplate = path.resolve('./src/templates/page.js');
+      // We want to create a detailed page for each
+      // post node. We'll just use the Wordpress Slug for the slug.
+      // The Post ID is prefixed with 'POST_'
+      _.each(result.data.allWordpressPage.edges, (edges) => {
+
+        createPage({
+          path: `/pages/${edges.node.slug}`,
+          component: slash(pageTemplate),
+          context: {
+            id: edges.node.id,
+          },
+        });
+      });
+      resolve();
+    });
+    // ==== END PAGES ====
+
     // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
     graphql(
       `
-            {
-                allWordpressWpBlogs {
-                    edges {
-                      node {
-                        slug
-                        id
-                        title
-                        date
-                      }
-                    }
+      {
+          allWordpressWpBlogs {
+              edges {
+                node {
+                  slug
+                  id
+                  title
+                  date
                 }
-            }
-          `,
+              }
+          }
+      }
+    `,
     ).then((result) => {
       if (result.errors) {
         console.log(result.errors);
@@ -48,6 +88,7 @@ exports.createPages = ({
       // post node. We'll just use the Wordpress Slug for the slug.
       // The Post ID is prefixed with 'POST_'
       _.each(result.data.allWordpressWpBlogs.edges, (edges) => {
+
         createPage({
           path: `/blog/${edges.node.slug}`,
           component: slash(postTemplate),
