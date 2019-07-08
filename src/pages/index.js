@@ -19,9 +19,9 @@ const Blog = () => (
                 main_banner_image {
                   localFile {
                     childImageSharp {
-                      fixed(width: 1080, height: 567) {
-                        ...GatsbyImageSharpFixed
-                      }
+                      fixed(width: 800, height: 420) {
+                        ...GatsbyImageSharpFixed_withWebp
+                        }
                       fluid {
                         ...GatsbyImageSharpFluid_withWebp_tracedSVG
                       }
