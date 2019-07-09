@@ -86,10 +86,10 @@ const Blog = () => (
           // Hide banner text
           const bannerText = document.querySelector('.banner-text');
           if ( bannerText ) {
-            if ( scrolled > 5 ) {
-              bannerText.classList = ' hidden';
+            if ( scrolled > 30 ) {
+              bannerText.classList += ' hidden';
             } else {
-              bannerText.classList = 'banner-text';
+              bannerText.classList = ' banner-text';
             }
           }
           
