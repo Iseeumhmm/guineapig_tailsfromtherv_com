@@ -13,8 +13,8 @@ function Header({ siteTitle }) {
   useEffect(() => {
     var nav = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-      if ( window.pageYOffset > 10 ) {
-        nav.classList += ' hidden';
+      if ( window.pageYOffset > 30 ) {
+        nav.classList = 'temp-padding navbar-dark navbar navbar-expand-lg navbar-light hidden';
       } else {
         nav.classList = 'temp-padding navbar-dark navbar navbar-expand-lg navbar-light';
       }

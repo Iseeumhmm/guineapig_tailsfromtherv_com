@@ -87,9 +87,9 @@ const Blog = () => (
           const bannerText = document.querySelector('.banner-text');
           if ( bannerText ) {
             if ( scrolled > 5 ) {
-              bannerText.classList += ' hidden';
+              bannerText.classList = ' hidden';
             } else {
-              bannerText.classList = ' banner-text';
+              bannerText.classList = 'banner-text';
             }
           }
           
@@ -120,17 +120,20 @@ const Blog = () => (
             <hr className="banner-line"></hr>
             <p>Blizzard the Guinea Pig's Adventures</p>
           </div>
-          
-          <Carousel key={3} images={posts.edges}/>
-          <LatestPost 
-            key={4} 
-            title={post.title}
-            slug={post.slug}
-            location={post.acf.location}
-            what={post.acf.excerpt}
-            image={post.acf.image.localFile.childImageSharp}
-            highlight={post.acf.highlight_color}/>
-          <PostList key={5} data={posts.edges}/>
+          <div className="index-container">
+            <div className="index-margin">
+            <Carousel key={3} images={posts.edges}/>
+              <LatestPost 
+                key={4} 
+                title={post.title}
+                slug={post.slug}
+                location={post.acf.location}
+                what={post.acf.excerpt}
+                image={post.acf.image.localFile.childImageSharp}
+                highlight={post.acf.highlight_color}/>
+              <PostList key={5} data={posts.edges}/>
+          </div>
+        </div>
       </Layout>
 )}}
 />

@@ -12,5 +12,9 @@
     }
     &-image {
         height: 15rem;
+        @media ( min-width:  550px ) {
+            height: 25rem;
+        }
     }
 }
+

@@ -26,7 +26,7 @@ const latestPost = (props) => (
             </Link>
         </div>
         <div className="latest_post_text-container">
-            {props.what}
+            <h2>{props.what}</h2>
         </div>
       </div>
 );

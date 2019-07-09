@@ -1,9 +1,31 @@
 
-
+.index {
+    &-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        background-color: white;
+        
+    }
+    &-margin {
+        @media( min-width: 800px ){
+            margin: 0 10rem;
+        }
+        @media( min-width: 800px ){
+            margin: 0 15rem;
+        }
+    }
+}
 
 .parallax-image {
     height: 40rem;
     margin-bottom: -6rem;
+    @media ( min-width: 750px ) {
+        height: 55rem;
+    }
+    @media ( min-width: 1000px ) {
+        height: 65rem;
+    }
 }
 // fix spacing at right side (scroll bar)
 .slick-next {
