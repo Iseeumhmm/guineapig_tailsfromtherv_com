@@ -64,7 +64,7 @@ const PostTemplate = (props) => {
 
         <div className="post-main-content">
           <h1>{post.acf.location}</h1>
-          <p>{post.acf.what}</p>
+          <p dangerouslySetInnerHTML={{ __html: post.acf.what }}></p>
         </div>
 
         <div className="comments-container">
