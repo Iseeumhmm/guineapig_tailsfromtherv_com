@@ -116,8 +116,8 @@ const Blog = () => (
                 highlightColour={pages.acf.highlight_color}/>  
         </BackgroundImage>
           <div className="banner-text">
-            <p className="">Coming this July</p>
-            <hr className="banner-line"></hr>
+            {/* <p className="">Coming this July</p>
+            <hr className="banner-line"></hr> */}
             <p>Blizzard the Guinea Pig's Adventures</p>
           </div>
           <div className="index-container">

@@ -10,9 +10,9 @@ const bannerImage = (props) => (
             alt="blog_image_one"
           />
           <div className="overlay overlay--banner">
-            <div className="banner_image-text">
+            {/* <div className="banner_image-text">
               <h1>Coming July 2019</h1>
-            </div>
+            </div> */}
           </div>
         </div>
   );
