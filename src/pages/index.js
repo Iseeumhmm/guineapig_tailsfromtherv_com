@@ -23,7 +23,7 @@ const Blog = () => (
                         ...GatsbyImageSharpFixed_withWebp
                         }
                       fluid {
-                        ...GatsbyImageSharpFluid
+                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
                       }
                     }
                   }
