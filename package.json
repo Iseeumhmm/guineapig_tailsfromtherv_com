@@ -20,7 +20,7 @@
     "gatsby-source-wordpress": "^3.0.65",
     "gatsby-transformer-sharp": "^2.1.21",
     "intersection-observer": "^0.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash.template": "^4.5.0",
     "node-sass": "^4.12.0",
     "popper.js": "^1.15.0",
